@@ -11,3 +11,5 @@ hash -r
 echo "Testing Strawberry Switchblade...."
 
 yt-dlp -x --audio-format mp3 https://youtu.be/x7QPBzAJ_io?si=o0t2W-ef8E-gF-dM
+
+echo "All finished! Happy Sampling!!"
