@@ -1,0 +1,21 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+BASH SCRIPTING
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+When running a bash script you must give permission to the file 
+to run before anything else. Do this by running:
+
+chmod +x filename.sh
+
+When using chmod '+x' means to give a permission to the file where as '- x'
+would be removing this permission from the file instead.
+
+Then you can run it:
+
+./filename.sh
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$
