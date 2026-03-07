@@ -1,4 +1,4 @@
 spotify
-obsidian
 discord
 steam
+bitwarden
