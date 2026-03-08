@@ -6,3 +6,6 @@ gh
 vim
 flatpak
 curl
+pipewire-audio-client-libraries
+libspa-0.2-jack
+pipewire-jack
