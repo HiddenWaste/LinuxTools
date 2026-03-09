@@ -1,0 +1,9 @@
+layout {
+	pane split_direction="vertical" {
+	pane;
+	pane name="bonsai" command="cbonsai" {
+		args "-l" "-i" "--wait=5"
+	}
+}
+
+}

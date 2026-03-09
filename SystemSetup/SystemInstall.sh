@@ -1,8 +1,8 @@
-sudo apt update > /dev/null 2>&1
-sudo apt upgrade > /dev/null 2>&1
+sudo apt update # > /dev/null 2>&1
+sudo apt upgrade # > /dev/null 2>&1
 
 # Banner first for *dramatic* purposes
-sudo apt install sysvbanner > /dev/null 2>&1
+sudo apt install sysvbanner # > /dev/null 2>&1
 
 banner "| System |"
 banner "| Starts |"
@@ -23,47 +23,47 @@ echo "Now for the snap packages!"
 #    quite a headache compared to apt...
 #    first while block is normal while second is classic...
 #
-while IFS= read -r snap_pkg || [ -n "$snap_pkg" ]; 
-	do
-	
-		# Install the package
-		if snap list "$snap_pkg" >/dev/null 2>&1; then
-			echo ">> $snap_pkg already here!"
-		else
-			banner "$snap_pkg"
-			sudo snap install "$snap_pkg"
+#while IFS= read -r snap_pkg || [ -n "$snap_pkg" ]; 
+#	do
+#	
+#		# Install the package
+#		if snap list "$snap_pkg" >/dev/null 2>&1; then
+#			echo ">> $snap_pkg already here!"
+#		else
+#			banner "$snap_pkg"
+#			sudo snap install "$snap_pkg"
 		
-
+#
 	#	if [ $? -ne 0 ]; then 
-	#		echo "$snap_pkg failed, next." 
+#	#		echo "$snap_pkg failed, next." 
 	#	fi
 
 		# Watch for it to finish
-			while pgrep -x "snap" > /dev/null; do sleep 1; done
-	fi
-done < ./pkg-lists/snap.txt 
+#			while pgrep -x "snap" > /dev/null; do sleep 1; done
+#	fi
+#done < ./pkg-lists/snap.txt 
 
 # --- CLASSIC FLAGGED PACKAGES ------ #
 
-while IFS= read -r snap_pkg || [ -n "$snap_pkg" ]; 
-	do
+#while IFS= read -r snap_pkg || [ -n "$snap_pkg" ]; 
+#	do
 	
 		# Install the package
-		if snap list "$snap_pkg" >/dev/null 2>&1; then
-			echo ">> $snap_pkg already here!"
-		else
-			banner "$snap_pkg"
-			sudo snap install "$snap_pkg" --classic
+#		if snap list "$snap_pkg" >/dev/null 2>&1; then
+#			echo ">> $snap_pkg already here!"
+#		else
+#			banner "$snap_pkg"
+#			sudo snap install "$snap_pkg" --classic
 		
 
 	#	if [ $? -ne 0 ]; then 
-	#		echo "$snap_pkg failed, next." 
+#	#		echo "$snap_pkg failed, next." 
 	#	fi
 
 		# Watch for it to finish
-			while pgrep -x "snap" > /dev/null; do sleep 1; done
-	fi
-done < ./pkg-lists/snap-classic.txt
+#			while pgrep -x "snap" > /dev/null; do sleep 1; done
+#	fi
+#done < ./pkg-lists/snap-classic.txt
 
 #  Various dotfiles
 
