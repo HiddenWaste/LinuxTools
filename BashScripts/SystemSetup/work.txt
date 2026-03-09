@@ -1,0 +1,19 @@
+AUTH_PASS=Cr-amy_p1nt5
+AUTH_USER=christian.lietz@usiouxfalls.edu
+BIT_API=ATATT3xFfGF0bTjneMSi5Hr52qIbmg6DVd_aFRZlCqYZ7JGgx6PGsh82OOUQxfgM8dWjZSp4WrdBdefzsdvqzhFkp6OZt3xL72godwqubArF-pfJPHAcFgBbRWVr341sXV1SBBup814YV4SuuLaSWUbyMma9a-ZPKBKanAkJrXDSWFpLirKzid4=C87A4A59
+CLICKRAIN_SFTP_HOST=sftp.w238.clickrain.net
+CLICKRAIN_SFTP_PORT=2200
+CLICKRAIN_SFTP_USER=usf
+CLLICKRAIN_SFTP_PASS=b4KdTfXMqCmsAo3e4QeTW6KYqL7pgnhM
+COURSE_SFTP_FILEPATH=/sftp/courses.xml
+DB19_PASS=R%40d2sttng
+DB19_SERVER=db19
+DB19_USER=sa
+J1_DB_PASS=Tough minded cat7&
+J1_DB_USER=SUF_DataReader
+J1_HOST=JZSUF-SQL1.suf.jaas
+MEALPLAN_SFTP_HOST=sftp.atriumcampus.com
+MEALPLAN_SFTP_KEY_PATH=C:\PycharmProjects\MealPlanSFTP\aladdin_key_new.pem
+MEALPLAN_SFTP_PATH=/incoming/USF_MealPlans.csv
+MEALPLAN_SFTP_PORT=22
+MEALPLAN_SFTP_USER=usiouxfallssftp
