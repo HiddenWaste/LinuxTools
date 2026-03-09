@@ -70,4 +70,9 @@ done < ./pkg-lists/snap-classic.txt
 ## Gnome terminal profiles
 dconf load /org/gnome/terminal/legacy/profiles:/ < terminal_profiles.dconf
 
+## Vim RC File
+ln -s -f ~/dotfiles/.vimrc ~/.vimrc
+
 echo "Rise up gamer."
+
+
