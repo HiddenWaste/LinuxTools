@@ -1,4 +1,7 @@
 vlc
+sl
+htop
+cmatrix
 ffmpeg
 python3
 python3-pip
