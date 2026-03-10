@@ -6,6 +6,12 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 read -p "Install Extras? (y/n)" EXTRAS
 read -p "Install Snaps? (y/n)" SNAP
 read -p "Setup Portainer?? (y/n)" port_flag # Ask user if portainer should be setup
+read -p "STOP! Have you violated the law?" github
+
+if [[ "$github" == "...maybe" ]]; then
+    git config user.name HiddenWaste
+    git config user.email cartergordon13@gmail.com
+fi
 
 # echo $SCRIPT_DIR # Debug print
 sudo apt update #  > /dev/null 2>&1
