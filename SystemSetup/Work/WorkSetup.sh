@@ -1,8 +1,9 @@
-sudo chmod +x ../SystemSetup.sh
+sudo chmod +x ../SystemInstall.sh
 
-bash ../SystemInstall.sh
+source ../SystemInstall.sh
 
-cwd=$(pwd)
+# cd "$(dirname "$8")"
+
 
 # Set Variables
 USER="cartergordon"

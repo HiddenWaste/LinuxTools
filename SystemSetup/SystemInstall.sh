@@ -1,3 +1,5 @@
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+echo $SCRIPT_DIR
 sudo apt update # > /dev/null 2>&1
 sudo apt upgrade # > /dev/null 2>&1
 
@@ -8,10 +10,8 @@ banner "| System |"
 banner "| Starts |"
 sleep 3
 
-cwd=~/Code/LinuxTools/SystemSetup/
-
 echo "We shall begin with the apt packages...."
-sudo apt install -y $(cat ./pkg-lists/apt.txt)
+sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
 
 echo "Now for the snap packages!"
 
@@ -70,15 +70,19 @@ echo "Now for the snap packages!"
 #  Various dotfiles
 
 ## Gnome terminal profiles
-dconf load /org/gnome/terminal/legacy/profiles:/ < terminal_profiles.dconf
+dconf load /org/gnome/terminal/legacy/profiles:/ < "$SCRIPT_DIR/terminal_profiles.dconf"
+echo "Gnome Terminal Profiles Populated." # debug print
 
 ## Vim RC File
-ln -s -f ./dotfiles/.vimrc ~/.vimrc
+ln -s -f "$SCRIPT_DIR/dotfiles/.vimrc" ~/.vimrc
+echo ".vimrc Populated." # debug print
 
 ## Zellij Templates
 mkdir -p ~/.config/zellij/layouts # Create folder if it doesnt exist
-mv ./zlayouts/*.kdl ~/.config/zellij/layouts # Move the templates
+cp "$SCRIPT_DIR/zlayouts/"*.kdl ~/.config/zellij/layouts # Move the templates
+echo "Zellij Templates Populated." # debug print
 
-echo "Rise up gamer."
+
+echo "Save the world. This is my final message. Goodbye.""
 
 
