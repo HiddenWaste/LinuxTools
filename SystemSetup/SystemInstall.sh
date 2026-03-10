@@ -8,6 +8,8 @@ banner "| System |"
 banner "| Starts |"
 sleep 3
 
+cwd=~/Code/LinuxTools/SystemSetup/
+
 echo "We shall begin with the apt packages...."
 sudo apt install -y $(cat ./pkg-lists/apt.txt)
 
