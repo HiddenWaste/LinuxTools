@@ -71,7 +71,11 @@ echo "Now for the snap packages!"
 dconf load /org/gnome/terminal/legacy/profiles:/ < terminal_profiles.dconf
 
 ## Vim RC File
-ln -s -f ~/dotfiles/.vimrc ~/.vimrc
+ln -s -f ./dotfiles/.vimrc ~/.vimrc
+
+## Zellij Templates
+mkdir -p ~/.config/zellij/layouts # Create folder if it doesnt exist
+mv ./zlayouts/*.kdl ~/.config/zellij/layouts # Move the templates
 
 echo "Rise up gamer."
 

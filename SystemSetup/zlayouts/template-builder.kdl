@@ -1,0 +1,7 @@
+layout {
+	pane split_direction="vertical" {
+	pane name="Reference" cwd="/home/compy/Code/Linuxtools/SystemSetup/zlayouts"
+	pane name="new" command="cmatrix"
+}
+
+}
