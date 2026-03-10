@@ -1,4 +1,5 @@
 vlc
+libreoffice
 sl
 htop
 cmatrix
