@@ -1,9 +1,12 @@
 layout {
-	pane split_direction="vertical" {
-	pane;
-	pane name="bonsai" command="cbonsai" {
-		args "-l" "-i" "--wait=5"
-	}
+ pane {
+        split_direction "vertical"
+        pane cwd="~/Code/LinuxTools/SystemSetup/zlayouts"
+	    pane split_direction="horizontal" {
+	        pane name="Reference" cwd="/home/compy/Code/Linuxtools/SystemSetup/zlayouts"
+	        pane name="m" command="cmatrix"
+        }
+    }
 }
 
-}
+

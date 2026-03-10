@@ -1,7 +1,16 @@
 layout {
-	pane split_direction="vertical" {
-	pane name="Reference" cwd="/home/compy/Code/Linuxtools/SystemSetup/zlayouts"
-	pane name="new" command="cmatrix"
+ pane {
+        split_direction "vertical"
+        pane cwd="~/Code/LinuxTools/SystemSetup/zlayouts"
+	    pane split_direction="horizontal" {
+	        pane {
+                split_direction "vertical"
+                pane name="Launch" cwd="~/Code/Linuxtools/SystemSetup/zlayouts"
+	            pane name="-" command="~/Code/LinuxTools/Bonsai/SmolBonsai.sh"
+            }
+            pane name="-" command="cmatrix"
+        }
+    }
 }
 
-}
+

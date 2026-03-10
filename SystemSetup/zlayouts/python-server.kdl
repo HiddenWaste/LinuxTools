@@ -1,0 +1,10 @@
+layout {
+ pane {
+        split_direction "vertical"
+        pane cwd="~/Code" name="py-code"
+	    pane split_direction="horizontal" {
+	        pane name="py-server" cwd="~/Code"
+	        pane name="-" command="~/Code/LinuxTools/Bonsai/SmolBonsai.sh"
+        }
+    }
+}

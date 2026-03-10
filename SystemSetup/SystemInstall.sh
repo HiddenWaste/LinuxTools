@@ -1,9 +1,11 @@
 # Sets a variable for the directory *this* script runs in, for calling elsewhere
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) 
 
-# Turn the snap block on and off
-SNAP="true"
-# SNAP="false"
+# User Input flags for extras, large things, or 
+#    non-essential applications
+read -p "Install Extras? (y/n)" EXTRAS
+read -p "Install Snaps? (y/n)" SNAP
+read -p "Setup Portainer?? (y/n)" port_flag # Ask user if portainer should be setup
 
 # echo $SCRIPT_DIR # Debug print
 sudo apt update #  > /dev/null 2>&1
@@ -76,6 +78,13 @@ if [[ "$SNAP" == "true" ]]; then
 fi
 
 
+
+
+if [[ "$EXTRAS" == "y" ]]; then
+    sudo apt install libreoffice
+    sudo apt-get install supercollider-ide
+fi
+
 #  --------- VARIOUS DOTFILES ---------- #
 ## Gnome terminal profiles
 dconf load /org/gnome/terminal/legacy/profiles:/ < "$SCRIPT_DIR/terminal_profiles.dconf"
@@ -90,7 +99,6 @@ mkdir -p ~/.config/zellij/layouts # Create folder if it doesnt exist
 cp "$SCRIPT_DIR/zlayouts/"*.kdl ~/.config/zellij/layouts # Move the templates
 echo "Zellij Templates Populated." # debug print
 
-read -p "Setup Portainer?? (y/n)" port_flag # Ask user if portainer should be setup
 
 if [[ "$port_flag" == 'y' ]]; then
     # Docker compose up portainer...
