@@ -13,3 +13,6 @@
     
     # Undo the last commit but keep your changes staged
     undo = reset --soft HEAD~1
+[user]
+	name = HiddenWaste
+	email = cartergordon13@gmail.com

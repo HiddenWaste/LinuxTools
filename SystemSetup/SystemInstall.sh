@@ -37,8 +37,8 @@ sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
 
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then
-        git config user.name HiddenWaste
-        git config user.email cartergordon13@gmail.com
+        git config --global user.name HiddenWaste
+        git config --global user.email cartergordon13@gmail.com
 
             
     
