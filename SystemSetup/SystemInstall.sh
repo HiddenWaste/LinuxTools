@@ -92,6 +92,16 @@ echo "Zellij Templates Populated." # debug print
 
 read -p "Setup Portainer?? (y/n)" port_flag # Ask user if portainer should be setup
 
+
+if [[ "$install-type" == 'main' ]]; then
+    # Zen browser install
+    curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
+
+    git clone https://github.com/HiddenWaste/DND 
+
+fi
+        
+
 if [[ "$port_flag" == 'y' ]]; then
     # Docker compose up portainer...
     cwd="$SCRIPT_DIR../dockerfiles/portainer/" # Change working directory to portainer
