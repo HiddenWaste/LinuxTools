@@ -1,0 +1,15 @@
+[alias]
+    # General shortcuts
+    st = status -sb
+    co = checkout
+    br = branch
+    ci = commit
+    
+    # "Save points" - quickly stage everything and commit
+    wip = !git add -A && git commit -m "WIP"
+    
+    # The "Fancy Log" - see a colorful graph of your history
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    
+    # Undo the last commit but keep your changes staged
+    undo = reset --soft HEAD~1

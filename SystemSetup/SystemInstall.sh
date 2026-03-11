@@ -117,6 +117,10 @@ echo "Gnome Terminal Profiles Populated." # debug print
 ln -s -f "$SCRIPT_DIR/dotfiles/.vimrc" ~/.vimrc
 echo ".vimrc Populated." # debug print
 
+## .gitconfig
+ln -s -f "$SCRIPT_DIR/dotfiles/.gitconfig" ~/.gitconfig
+echo ".gitconfig Populated." # debug print
+
 ## Zellij Templates
 mkdir -p ~/.config/zellij/layouts # Create folder if it doesnt exist
 cp "$SCRIPT_DIR/zlayouts/"*.kdl ~/.config/zellij/layouts # Move the templates
