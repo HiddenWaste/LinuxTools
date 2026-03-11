@@ -1,6 +1,7 @@
 # Sets a variable for the directory *this* script runs in, for calling elsewhere
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) 
 
+echo "Good lord, it's too bright in here, forcing dark mode."
 # General System settings
 ## ENFORCE DARK MODE. NO LIGHT MODE PROPAGANDA.
 # For GTK4 and Libadwaita apps (Modern Ubuntu)
@@ -11,7 +12,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
 # New windows open center
 gsettings set org.gnome.mutter center-new-windows true
 
-read -p "Whoa Nelly! Just what kinda user are YOU?? (main\work" installType
+read -p "Whoa Nelly! Just what kinda user are YOU?? (main \ work) :" installType
 
 # Do banner first to also get the prompt out of the way
 sudo apt install sysvbanner
@@ -34,6 +35,15 @@ sudo apt upgrade
 echo "Now we do them apt packages I put on *every* system. My EDC if you will"
 sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
 
+echo "Gotta get the best browser out there!"
+# zen-browser
+curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
+
+echo "Now for my preferred terminal: Kitty"
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
+ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
+    
 
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then
@@ -41,9 +51,6 @@ if [[ "$installType" == "main" ]]; then
     git config --global user.email cartergordon13@gmail.com
      
     # mullvadvpn
-    
-    # zen-browser
-    curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
     
     sudo apt install libreoffice
     sudo apt-get install supercollider-ide
@@ -153,6 +160,10 @@ echo "Gnome Terminal Profiles Populated." # debug print
 ## Vim RC File
 ln -s -f "$SCRIPT_DIR/dotfiles/.vimrc" ~/.vimrc
 echo ".vimrc Populated." # debug print
+
+## Bash RC File
+ln -s -f "$SCRIPT_DIR/dotfiles/.bashrc" ~/.bashrc
+echo ".bashrc Populated."
 
 ## .gitconfig
 ln -s -f "$SCRIPT_DIR/dotfiles/.gitconfig" ~/.gitconfig
