@@ -1,0 +1,16 @@
+layout {
+ pane {
+        split_direction "vertical"
+        pane cwd="~/Code/LinuxTools/SystemSetup/zlayouts"
+	    pane split_direction="horizontal" {
+	        pane {
+                split_direction "vertical"
+                pane name="Testing" cwd="~/Code/Linuxtools/SystemSetup/zlayouts"
+	            pane name="DIR" cwd="~/Code/txtbk-req-python-subprocess"
+            }
+            pane name="-" command="cmatrix"
+        }
+    }
+}
+
+

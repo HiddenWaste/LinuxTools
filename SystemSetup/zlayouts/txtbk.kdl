@@ -1,6 +1,8 @@
 layout {
 	pane split_direction="vertical" {
-	pane;
+	pane command="vim" {
+        args "~/Code/webadmin/application/classes/Controller/Forms/Index.php"
+}
 	pane name="bonsai" command="cbonsai" {
 		args "-l" "-i" "--wait=5"
 	}
