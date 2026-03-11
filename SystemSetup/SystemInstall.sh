@@ -1,94 +1,96 @@
 # Sets a variable for the directory *this* script runs in, for calling elsewhere
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) 
 
-# User Input flags for extras, large things, or 
-#    non-essential applications
-read -p "Install Extras? (y/n)" EXTRAS
-read -p "Install Snaps? (y/n)" SNAP
-read -p "Setup Portainer?? (y/n)" port_flag # Ask user if portainer should be setup
-read -p "STOP! Have you violated the law?" github
+read -p "Whoa Nelly! Just what kinda user are YOU?? (main\work" installType
 
-if [[ "$github" == "...maybe" ]]; then
-    git config user.name HiddenWaste
-    git config user.email cartergordon13@gmail.com
-fi
+# Do banner first to also get the prompt out of the way
+sudo apt install sysvbanner
+
+banner "||HOWDY||" # Debug print, also ensure packages install correctly
+sleep 3
 
 # echo $SCRIPT_DIR # Debug print
-sudo apt update #  > /dev/null 2>&1
-sudo apt upgrade # > /dev/null 2>&1
+echo "WHOA that was a big ol thing of text huh?"
+echo "Alrighty then. first, we start with the absolute basics. Update and upgrade."
+sleep 1
+sudo apt update
+sudo apt upgrade
 # ^ commented out portions will suppress output of commands
 #       changes the output from the terminal to the arbitrary possition that gets nulled
 
 # Banner first for *dramatic* purposes
-sudo apt install sysvbanner > /dev/null 2>&1
-
-banner "| System |"
-banner "| Starts |"
-sleep 3
-
-echo "We shall begin with the apt packages...."
+echo "Now we do them apt packages I put on *every* system. My EDC if you will"
 sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
 
-echo "Now for the snap packages!"
 
-# Snap installation
-    
+# Where the installs begin to differ
+if [[ "$installType" == "main" ]]; then
+        git config user.name HiddenWaste
+        git config user.email cartergordon13@gmail.com
 
-# More complex route, above would error with how it fed
-# the command was passed with all at once
-#    quite a headache compared to apt...
-#    first while block is normal while second is classic...
-#
-if [[ "$SNAP" == "true" ]]; then
-    while IFS= read -r snap_pkg || [ -n "$snap_pkg" ]; 
-        do
-	
-		# Install the package
-		if snap list "$snap_pkg" >/dev/null 2>&1; then
-			echo ">> $snap_pkg already here!"
-		else
-			banner "$snap_pkg"
-			sudo snap install "$snap_pkg"
-		
+        
+    sudo apt install libreoffice
+    sudo apt-get install supercollider-ide
+        
+    echo "Now for the snap packages!"
+    # Snap installation
+    if [[ "$installType" == "main" ]]; then
+        while IFS= read -r snap_pkg || [ -n "$snap_pkg" ];
+            do
+            
+                # Install the package
+                if snap list "$snap_pkg" >/dev/null 2>&1; then
+                    echo ">> $snap_pkg already here!"
+                else
+                    banner "$snap_pkg"
+                    sudo snap install "$snap_pkg"
+                
 
-		    if [ $? -ne 0 ]; then 
-			    echo "$snap_pkg failed, next." 
-		    fi
+                    if [ $? -ne 0 ]; then 
+                        echo "$snap_pkg failed, next." 
+                    fi
 
-		    #  Watch for it to finish
-		    while pgrep -x "snap" > /dev/null; do sleep 1; done
-	    fi
-    done < ./pkg-lists/snap.txt 
+                    #  Watch for it to finish
+                    while pgrep -x "snap" > /dev/null; do sleep 1; done
+                fi
+            done < ./pkg-lists/snap.txt 
 
-    # --- CLASSIC FLAGGED PACKAGES ------ #
+            # --- CLASSIC FLAGGED PACKAGES ------ #
 
-    while IFS= read -r snap_pkg || [ -n "$snap_pkg" ]; 
-    	do
-	
-    		# Install the package
-    		if snap list "$snap_pkg" >/dev/null 2>&1; then
-    			echo ">> $snap_pkg already here!"
-    		else
-    			banner "$snap_pkg"
-    			sudo snap install "$snap_pkg" --classic
-		
+            while IFS= read -r snap_pkg || [ -n "$snap_pkg" ]; 
+                do
+                    # Install the package
+                    if snap list "$snap_pkg" >/dev/null 2>&1; then
+                        echo ">> $snap_pkg already here!"
+                    else
+                        banner "$snap_pkg"
+                        sudo snap install "$snap_pkg" --classic
+                
 
-	    	    if [ $? -ne 0 ]; then 
-	    		    echo "$snap_pkg failed, next." 
-	    	    fi
+                        if [ $? -ne 0 ]; then 
+                            echo "$snap_pkg failed, next." 
+                        fi
 
-		        # Watch for it to finish
-			    while pgrep -x "snap" > /dev/null; do sleep 1; done
-    	    fi
-    done < ./pkg-lists/snap-classic.txt
+                        # Watch for it to finish
+                        while pgrep -x "snap" > /dev/null; do sleep 1; done
+                    fi
+        done < ./pkg-lists/snap-classic.txt
+    fi 
+    echo "Now we got the snappy stuffy out the way, what say you we get a bit frisky?"
+    sleep  2
+           
+     # Docker compose up portainer...
+    cwd="$SCRIPT_DIR../dockerfiles/portainer/" # Change working directory to portainer
+    sudo docker compose up -d                   # Spin up portainer
+    echo "Strait of Hormuz has been opened!"    # Witty finished message
+else
+    echo "Skipping portainer...."           # Else Message
 fi
 
 
-
-
-if [[ "$EXTRAS" == "y" ]]; then
-    sudo apt install libreoffice
-    sudo apt-get install supercollider-ide
+if [[ "$installType" == "work" ]]; then
+    git config user.name cartergordon
+    git config user.email carter.gordon@usiouxfalls.edu
 fi
 
 #  --------- VARIOUS DOTFILES ---------- #
@@ -105,14 +107,5 @@ mkdir -p ~/.config/zellij/layouts # Create folder if it doesnt exist
 cp "$SCRIPT_DIR/zlayouts/"*.kdl ~/.config/zellij/layouts # Move the templates
 echo "Zellij Templates Populated." # debug print
 
-
-if [[ "$port_flag" == 'y' ]]; then
-    # Docker compose up portainer...
-    cwd="$SCRIPT_DIR../dockerfiles/portainer/" # Change working directory to portainer
-    sudo docker compose up -d                   # Spin up portainer
-    echo "Strait of Hormuz has been opened!"    # Witty finished message
-else
-    echo "Skipping portainer...."           # Else Message
-fi
 
 echo "Save the world. This is my final message. Goodbye."
