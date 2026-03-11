@@ -58,7 +58,7 @@ if [[ "$installType" == "main" ]]; then
                     echo ">> $snap_pkg already here!"
                 else
                     banner "$snap_pkg"
-                    sudo snap install "$snap_pkg"
+                    sudo snap install "$snap_pkg" --no-wait
                 
 
                     if [ $? -ne 0 ]; then 
@@ -76,7 +76,8 @@ if [[ "$installType" == "main" ]]; then
                 do
                     # Install the package
                     if snap list "$snap_pkg" >/dev/null 2>&1; then
-                        echo ">> $snap_pkg already here!"
+
+                    echo ">> $snap_pkg already here!"
                     else
                         banner "$snap_pkg"
                         sudo snap install "$snap_pkg" --classic
@@ -107,6 +108,37 @@ if [[ "$installType" == "work" ]]; then
     git config user.name cartergordon
     git config user.email carter.gordon@usiouxfalls.edu
 fi
+
+
+#!/bin/bash
+
+# --- 1. Conditional Installation of Zen Browser ---
+#if command -v zen &> /dev/null; then
+#    echo "Zen Browser is already installed. Skipping..."
+#else
+#    echo "Installing Zen Browser..."
+#    curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
+#fi
+
+# --- 2. Configure Pinned Apps (The Dock) ---
+# This list explicitly defines exactly what you want pinned, in order.
+# Note: 'org.gnome.Nautilus.desktop' is the internal name for File Explorer.
+# Note: 'snap-store_ubuntu-software.desktop' is the App Center.
+
+WANTED_APPS=(
+    "zen.desktop"
+    "org.gnome.Terminal.desktop"
+    "spotify_spotify.desktop"
+)
+
+# Convert the array into the GSettings format: ['app1', 'app2', 'app3']
+FORMATTED_LIST=$(printf "'%s'," "${WANTED_APPS[@]}" | sed 's/,$//')
+gsettings set org.gnome.shell favorite-apps "[$FORMATTED_LIST]"
+
+echo "Dock updated! Unpinned: App Center, Help, Files, Firefox. Pinned: Zen, Terminal, Spotify."
+
+# --- 3. Set Zen as Default Browser ---
+xdg-settings set default-web-browser zen.desktop
 
 #  --------- VARIOUS DOTFILES ---------- #
 ## Gnome terminal profiles
