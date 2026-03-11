@@ -37,18 +37,22 @@ sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
 
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then
-        git config --global user.name HiddenWaste
-        git config --global user.email cartergordon13@gmail.com
-
-            
+    git config --global user.name HiddenWaste
+    git config --global user.email cartergordon13@gmail.com
+     
+    # mullvadvpn
     
     # zen-browser
-     curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
+    curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
+    
     sudo apt install libreoffice
     sudo apt-get install supercollider-ide
     sudo apt install qbittorrent
-    echo "Now for the snap packages!"
+   
+     
     # Snap installation
+    echo "Now for the snap packages!"
+    
     if [[ "$installType" == "main" ]]; then
         while IFS= read -r snap_pkg || [ -n "$snap_pkg" ];
             do
@@ -66,7 +70,7 @@ if [[ "$installType" == "main" ]]; then
                     fi
 
                     #  Watch for it to finish
-                    while pgrep -x "snap" > /dev/null; do sleep 1; done
+                    # while pgrep -x "snap" > /dev/null; do sleep 1; done
                 fi
             done < "$SCRIPT_DIR/pkg-lists/snap.txt" 
 
@@ -88,7 +92,7 @@ if [[ "$installType" == "main" ]]; then
                         fi
 
                         # Watch for it to finish
-                        while pgrep -x "snap" > /dev/null; do sleep 1; done
+                    #    while pgrep -x "snap" > /dev/null; do sleep 1; done
                     fi
         done < "$SCRIPT_DIR/pkg-lists/snap-classic.txt"
     fi 
@@ -129,18 +133,19 @@ WANTED_APPS=(
     "zen.desktop"
     "org.gnome.Terminal.desktop"
     "spotify_spotify.desktop"
+    "mullvad-vpn.dektop"
 )
 
 # Convert the array into the GSettings format: ['app1', 'app2', 'app3']
 FORMATTED_LIST=$(printf "'%s'," "${WANTED_APPS[@]}" | sed 's/,$//')
 gsettings set org.gnome.shell favorite-apps "[$FORMATTED_LIST]"
+echo "Pinned dashboard apps have been updated."
 
-echo "Dock updated! Unpinned: App Center, Help, Files, Firefox. Pinned: Zen, Terminal, Spotify."
-
-# --- 3. Set Zen as Default Browser ---
+# Set Zen as default browser
 xdg-settings set default-web-browser zen.desktop
+echo "Zen set as the default. Namaste."
 
-#  --------- VARIOUS DOTFILES ---------- #
+#  --------- PERSONALIZATION & DOTFILES ---------- #
 ## Gnome terminal profiles
 dconf load /org/gnome/terminal/legacy/profiles:/ < "$SCRIPT_DIR/terminal_profiles.dconf"
 echo "Gnome Terminal Profiles Populated." # debug print
@@ -157,6 +162,5 @@ echo ".gitconfig Populated." # debug print
 mkdir -p ~/.config/zellij/layouts # Create folder if it doesnt exist
 cp "$SCRIPT_DIR/zlayouts/"*.kdl ~/.config/zellij/layouts # Move the templates
 echo "Zellij Templates Populated." # debug print
-
 
 echo "Save the world. This is my final message. Goodbye."
