@@ -1,6 +1,16 @@
 # Sets a variable for the directory *this* script runs in, for calling elsewhere
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) 
 
+# General System settings
+## ENFORCE DARK MODE. NO LIGHT MODE PROPAGANDA.
+# For GTK4 and Libadwaita apps (Modern Ubuntu)
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+# For GTK3 and legacy apps
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
+
+# New windows open center
+gsettings set org.gnome.mutter center-new-windows true
+
 read -p "Whoa Nelly! Just what kinda user are YOU?? (main\work" installType
 
 # Do banner first to also get the prompt out of the way
@@ -13,6 +23,8 @@ sleep 3
 echo "WHOA that was a big ol thing of text huh?"
 echo "Alrighty then. first, we start with the absolute basics. Update and upgrade."
 sleep 1
+
+
 sudo apt update
 sudo apt upgrade
 # ^ commented out portions will suppress output of commands
@@ -28,10 +40,13 @@ if [[ "$installType" == "main" ]]; then
         git config user.name HiddenWaste
         git config user.email cartergordon13@gmail.com
 
-        
+            
+    
+    # zen-browser
+     curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
     sudo apt install libreoffice
     sudo apt-get install supercollider-ide
-        
+    sudo apt install qbittorrent
     echo "Now for the snap packages!"
     # Snap installation
     if [[ "$installType" == "main" ]]; then
@@ -39,7 +54,7 @@ if [[ "$installType" == "main" ]]; then
             do
             
                 # Install the package
-                if snap list "$snap_pkg" >/dev/null 2>&1; then
+                if snap list "$snap_pkg"; then
                     echo ">> $snap_pkg already here!"
                 else
                     banner "$snap_pkg"
@@ -53,7 +68,7 @@ if [[ "$installType" == "main" ]]; then
                     #  Watch for it to finish
                     while pgrep -x "snap" > /dev/null; do sleep 1; done
                 fi
-            done < ./pkg-lists/snap.txt 
+            done < "$SCRIPT_DIR/pkg-lists/snap.txt" 
 
             # --- CLASSIC FLAGGED PACKAGES ------ #
 
@@ -74,7 +89,7 @@ if [[ "$installType" == "main" ]]; then
                         # Watch for it to finish
                         while pgrep -x "snap" > /dev/null; do sleep 1; done
                     fi
-        done < ./pkg-lists/snap-classic.txt
+        done < "$SCRIPT_DIR/pkg-lists/snap-classic.txt"
     fi 
     echo "Now we got the snappy stuffy out the way, what say you we get a bit frisky?"
     sleep  2
