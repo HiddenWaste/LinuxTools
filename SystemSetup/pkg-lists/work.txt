@@ -1,4 +1,9 @@
 usf-webapps
+BankReconcilliation
+txtbk-req-python-subprocess
+scheduled-tasks
+python_module
+usf
 webadmin
 usf-shared
 apps-site
