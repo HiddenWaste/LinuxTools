@@ -42,8 +42,8 @@ curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/ins
 echo "Now for my preferred terminal: Kitty"
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
-ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
-    
+# Now to setup Kitty!
+sh ./kittySetup.sh 
 
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then
