@@ -118,3 +118,8 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH" # Used to make sure bin is on path
                                     # initially added for kitty
+
+# Run fastfetch on open
+fastfetch
+
+
