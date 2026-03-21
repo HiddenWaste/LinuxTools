@@ -15,20 +15,32 @@ use-transparent-background=true
 visible-name='docker'
 
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-background-color='rgb(12,51,61)'
-background-transparency-percent=30
-bold-color='rgb(255,29,29)'
+audible-bell=false
+background-color='rgb(23,20,33)'
+background-transparency-percent=10
+bold-color='rgb(255,0,0)'
 bold-color-same-as-fg=false
 bold-is-bright=true
-cursor-background-color='rgb(255,255,255)'
+cell-height-scale=1.1000000000000001
+cell-width-scale=1.1000000000000001
+cursor-background-color='rgb(214,191,191)'
+cursor-blink-mode='on'
 cursor-colors-set=true
-foreground-color='rgb(131,148,150)'
+cursor-foreground-color='rgb(201,216,215)'
+cursor-shape='block'
+custom-command=''
+default-size-columns=90
+default-size-rows=30
+font='Liberation Mono 12'
+foreground-color='rgb(215,207,184)'
 highlight-colors-set=true
 highlight-foreground-color='rgb(95,95,95)'
 palette=['rgb(46,52,54)', 'rgb(204,0,0)', 'rgb(78,154,6)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(138,226,52)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']
+use-custom-command=false
+use-system-font=false
 use-theme-colors=false
 use-theme-transparency=false
-use-transparent-background=false
+use-transparent-background=true
 visible-name='default'
 
 [:bd5da0ac-bcad-4e29-a641-ad1c576be9af]
