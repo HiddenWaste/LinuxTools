@@ -1,4 +1,6 @@
 vlc
+sysvbanner
+ca-certificates
 sl
 htop
 cmatrix
@@ -10,6 +12,7 @@ gh
 vim
 flatpak
 curl
+gnupg
 pipewire-audio-client-libraries
 libspa-0.2-jack
 pipewire-jack
