@@ -3,5 +3,7 @@ sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 sudo apt update
 sudo apt install fastfetch
 
+mkdir ~/.config/fastfetch/
+
 # Now we use one of my config files...
 cp ../dotfiles/fastfetch/minimal.jsonc ~/.config/fastfetch/config.jsonc
