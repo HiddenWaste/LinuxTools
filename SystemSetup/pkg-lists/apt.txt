@@ -1,4 +1,7 @@
 vlc
+gimp
+audacity
+libfuse2t64
 sysvbanner
 ca-certificates
 sl
