@@ -122,6 +122,7 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH" # Used to make sure bin is on path
                                     # initially added for kitty
+export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agen.sock"
 
 # Run fastfetch on open
 fastfetch
