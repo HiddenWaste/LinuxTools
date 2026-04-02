@@ -4,9 +4,6 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 read -p "Whoa Nelly! Just what kinda user are YOU?? (main \ work) :" installType
 
-echo "Alrighty then! first, we start with the absolute basics. Update and upgrade."
-sleep 1
-
 sudo apt update
 sudo apt upgrade
 
@@ -26,23 +23,26 @@ fi
 echo "Now for my preferred terminal: Kitty"
 ./VariousInstalls/kittySetup.sh
 
+# Fastfetch since neofetch is dead...
+./VariousInstalls/fastfetch.sh
+
+
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then
-    # mullvadvpn
-    
+    ./VariousInstalls/mullvad.sh
+
     sudo apt install libreoffice
     sudo apt-get install supercollider-ide
     sudo apt install qbittorrent
    
     # Snap installation
     ./snap-install.sh
-
-    sleep  2
 fi
            
 if [[ "$installType" == "work" ]]; then
     git config --global user.name cartergordon
     git config --global user.email carter.gordon@usiouxfalls.edu
+    ./VariousInstalls/chrome.sh
 fi
 
 echo "Now we add all the little bells and whistles."

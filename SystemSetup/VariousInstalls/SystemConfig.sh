@@ -7,10 +7,6 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
 echo "Dark mode engaged." # Debug Print
 sleep 1
 
-gsettings set org.gnome.mutter center-new-windows true # new windows are center of screen
-echo "New windows will appear in center." # Debug Print
-sleep 1
-
 ## .gitconfig
 if ln -s -F "$SCRIPT_DIR/../dotfiles/.gitconfig" ~/.gitconfig; then
 	echo ".gitconfig Populated." # debug print
