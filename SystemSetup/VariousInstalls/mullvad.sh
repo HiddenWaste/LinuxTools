@@ -1,3 +1,6 @@
+# These commands taken from:
+#   https://mullvad.net/en/help/install-mullvad-app-linux
+
 # Download the signing key
 sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc
 
