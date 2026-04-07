@@ -1,6 +1,6 @@
 sudo apt install kitty
 
-ln -sf /home/remans/.local/kitty.app/bin/kitty ~/.local/bin/kitty
+ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/kitty
 
 # Create the applications folder if it's missing
 mkdir -p ~/.local/share/applications/

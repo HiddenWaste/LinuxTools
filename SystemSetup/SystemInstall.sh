@@ -2,10 +2,11 @@
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) 
 # echo "SystemInstall.sh: $SCRIPT_DIR" && pause # Debug print
 
+# Allow for more modular installation
 read -p "Whoa Nelly! Just what kinda user are YOU?? (main \ work) :" installType
 
-sudo apt update
-sudo apt upgrade
+sudo apt update # This is also just best practice to do before
+sudo apt upgrade # each time you install something new
 
 echo "Now, for just a mass of apt packages."
 sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
@@ -26,12 +27,12 @@ echo "Now for my preferred terminal: Kitty"
 # Fastfetch since neofetch is dead...
 ./VariousInstalls/fastfetch.sh
 
+sudo apt install libreoffice
 
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then
     ./VariousInstalls/mullvad.sh
 
-    sudo apt install libreoffice
     sudo apt-get install supercollider-ide
     sudo apt install qbittorrent
    
