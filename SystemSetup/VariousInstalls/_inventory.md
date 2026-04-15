@@ -22,6 +22,23 @@ directory, also hence the underscore in the title.
 - chrome.sh
 
 # Configuration Files
+## SystemConfig.sh
+- gnome dark mode color scheme
+- gnome dark mode gtk-theme
+- disable activities key shortcut (super)
+- populat git config
+- populate gnome terminal profiles
+- populate bashrc
+- vimrc
+- zellij templates
+- pinned apps on dashboard
+- zen as default browser
+
+TODO:
+- krusader as default files
+- kitty as default terminal
+- thunderbird email & calendar client
+
 
 # Explanations/Notes
 

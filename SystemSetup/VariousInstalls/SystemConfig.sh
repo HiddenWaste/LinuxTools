@@ -7,6 +7,9 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
 echo "Dark mode engaged." # Debug Print
 sleep 1
 
+# Disable activities launcher key shortcut
+gsettings set org.gnome.mutter overlay-key ''
+
 ## .gitconfig
 if ln -s -F "$SCRIPT_DIR/../dotfiles/.gitconfig" ~/.gitconfig; then
 	echo ".gitconfig Populated." # debug print

@@ -1,5 +1,8 @@
 vlc
+fzf
+filezilla
 libreoffice
+krusader
 gimp
 audacity
 libfuse2t64
