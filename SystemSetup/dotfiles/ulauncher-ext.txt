@@ -1,0 +1,11 @@
+https://github.com/tchar/ulauncher-albert-calculate-anything
+https://github.com/Ulauncher/ulauncher-emoji
+https://github.com/v-zhuravlev/ulauncher-ollama
+https://github.com/friday/ulauncher-clipboard
+https://github.com/iboyperson/ulauncher-system
+https://github.com/pywkm/ulauncher-spotify
+https://github.com/NastuzziSamy/ulauncher-custom-scripts
+https://github.com/NastuzziSamy/ulauncher-youtube-search
+https://github.com/brpaz/ulauncher-github
+https://github.com/elken/Terminal-Runner
+https://github.com/v-zhuravlev/ulauncher-ollama

@@ -1,4 +1,5 @@
 vlc
+libreoffice
 gimp
 audacity
 libfuse2t64

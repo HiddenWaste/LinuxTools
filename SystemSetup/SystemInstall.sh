@@ -20,14 +20,13 @@ else
     curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
 fi
 
-# -- KITTY -- #
-echo "Now for my preferred terminal: Kitty"
-./VariousInstalls/kittySetup.sh
-
-# Fastfetch since neofetch is dead...
-./VariousInstalls/fastfetch.sh
-
-sudo apt install libreoffice
+# This section is for all my preferred applications I can
+# programmaticaly populate so far, you can find reasonings in
+# The inventory script, here will be basic *what* it is
+./VariousInstalls/kittySetup.sh # Preffered Terminal Emulator
+                                # Pretty well customized
+./VariousInstalls/fastfetch.sh # Gotta have the vibes right
+./VariousInstalls/ulauncher.sh # AMazing app launcher!
 
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then

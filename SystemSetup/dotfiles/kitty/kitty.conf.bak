@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
 # BEGIN_KITTY_THEME
-# Atelier Lakeside Dark
+# Base2Tone Field Dark
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -379,7 +379,7 @@ cursor_trail_start_threshold 2
 
 #: Scrollback {{{
 
-scrollback_lines 6000 
+scrollback_lines 4000 
 
 #: Number of lines of history to keep in memory for scrolling back.
 #: Memory is allocated on demand. Negative numbers are (effectively)
@@ -998,7 +998,7 @@ scrollback_lines 6000
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations no 
+hide_window_decorations yes 
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -1254,7 +1254,8 @@ tab_powerline_style round
 
 #: Background color for the tab bar. Defaults to using the terminal
 #: background color.
-# tab_bar_margin_color white 
+
+tab_bar_margin_color white 
 
 #: Color for the tab bar margin area. Defaults to using the terminal
 #: background color for margins above and below the tab bar. For side
