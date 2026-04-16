@@ -11,15 +11,6 @@ sudo apt upgrade # each time you install something new
 echo "Now, for just a mass of apt packages."
 sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
 
-# -- ZEN BROWSER -- #
-echo "Gotta get the best browser out there!"
-if command -v zen &> /dev/null; then
-    echo "Zen Browser is already installed. Skipping..."
-else
-    echo "Installing Zen Browser..."
-    curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
-fi
-
 # This section is for all my preferred applications I can
 # programmaticaly populate so far, you can find reasonings in
 # The inventory script, here will be basic *what* it is
@@ -27,6 +18,7 @@ fi
                                 # Pretty well customized
 ./VariousInstalls/fastfetch.sh # Gotta have the vibes right
 ./VariousInstalls/ulauncher.sh # AMazing app launcher!
+./VariousInstalls/zen.sh
 
 # Where the installs begin to differ
 if [[ "$installType" == "main" ]]; then
