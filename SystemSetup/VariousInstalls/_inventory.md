@@ -46,3 +46,5 @@ TODO:
 ## Ulauncher (App Launcher)
 ## Mullvad (VPN)
 ## Zen (Browser)
+## krusader (GUI File Manger)
+## ranger (CLI File Manager)

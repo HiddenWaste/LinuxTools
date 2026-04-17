@@ -14,8 +14,10 @@ sudo apt install -y $(cat "$SCRIPT_DIR/pkg-lists/apt.txt")
 # This section is for all my preferred applications I can
 # programmaticaly populate so far, you can find reasonings in
 # The inventory script, here will be basic *what* it is
+
 ./VariousInstalls/kittySetup.sh # Preffered Terminal Emulator
-                                # Pretty well customized
+gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty' # set as default terminal
+
 ./VariousInstalls/fastfetch.sh # Gotta have the vibes right
 ./VariousInstalls/ulauncher.sh # AMazing app launcher!
 ./VariousInstalls/zen.sh

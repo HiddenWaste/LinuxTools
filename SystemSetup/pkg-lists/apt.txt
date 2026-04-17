@@ -1,4 +1,6 @@
 vlc
+ranger
+hollywood
 fzf
 filezilla
 libreoffice
