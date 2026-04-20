@@ -1,8 +1,11 @@
 # -- ZEN BROWSER -- #
-echo "Gotta get the best browser out there!"
+# Only install if it doesn't already exist
 if command -v zen &> /dev/null; then
-    echo "Zen Browser is already installed. Skipping..."
+    echo "zen already installed..."
 else
-    echo "Installing Zen Browser..."
+    echo "finding inner peace with zen..."
     curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
 fi
+
+xdg-settings set default-web-browser zen.desktop
+echo "zen set as default browser"

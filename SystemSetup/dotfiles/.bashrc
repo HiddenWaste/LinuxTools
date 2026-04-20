@@ -122,7 +122,11 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH" # Used to make sure bin is on path
                                     # initially added for kitty
+# Bitwarden ssh agent attempt...
 export SSH_AUTH_SOCK="$HOME/snap/bitwarden/155/.bitwarden-ssh-agent.sock"
+
+# Caps lock is escape...
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 # Run fastfetch on open
 fastfetch
