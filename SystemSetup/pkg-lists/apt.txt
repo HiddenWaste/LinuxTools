@@ -1,4 +1,5 @@
 vlc
+zeal
 ranger
 hollywood
 fzf
