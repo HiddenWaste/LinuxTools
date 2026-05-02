@@ -1,4 +1,5 @@
 vlc
+wl-clipboard
 zeal
 ranger
 hollywood
