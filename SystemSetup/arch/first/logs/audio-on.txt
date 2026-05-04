@@ -1,0 +1,100 @@
+  268  pokemon-colorscripts -rn $(cat ~/.config/fastfetch/poke.txt) 
+  269  fastfetch
+  270  pokemon-colorscripts -rn $(cat ~/.config/fastfetch/poke.txt) 
+  271  fastfetch
+  272  cd ~/.config/fastfetch/
+  273  ls
+  274  cat config.jsonc 
+  275  pokemon-colorscripts -rn $(cat ./poke.txt)
+  276  fastfetch
+  277  rm -rf config.jsonc 
+  278  vim config.jsonc
+  279  fastfetch
+  280  cat config.jsonc 
+  281  pokemon-colorscripts -rn $(cat ./poke.txt)
+  282  fastfetch --config config.jsonc --print-config
+  283  fastfetch --logo none
+  284  cd ../../
+  285  cd dotfiles
+  286  ls
+  287  ls -a
+  288  ranger
+  289  cp ./.bashrc ~/.bashrc
+  290  cp ./.vimrc ~/.vimrc
+  291  cp ./.gitconfig ~/.gitconfig
+  292  git st
+  293  git st
+  294  ls
+  295  ls fastfetch/
+  296  cat fastfetch/config.jsonc 
+  297  cp fastfetch/config.jsonc ~/.config/fastfetch/
+  298  mkdir -p ~/.config/fastfetch
+  299  cp fastfetch/config.jsonc ~/.config/fastfetch/
+  300  fastfetch
+  301  ls ../spring-dream/
+  302  ls fastfetch/
+  303  cd ../spring-dream/
+  304  ls
+  305  fastfetch
+  306  cd ../arch/first/dotfiles/
+  307  cd fastfetch/
+  308  cp ./poke0.jsonc ~/.config/fastfetch/config.jsonc 
+  309  fastfetch
+  310  cat ~/.config/fastfetch/config.jsonc
+  311  vim poke0.jsonc 
+  312  cp ./poke0.jsonc ~/.config/fastfetch/config.jsonc 
+  313  fastfetch
+  314  cat ~/.config/fastfetch/config.jsonc
+  315  cat ~/.config/fastfetch/poke.txt 
+  316  vim ./poke0.jsonc 
+  317  cp ./poke0.jsonc ~/.config/fastfetch/config.jsonc 
+  318  fastfetch
+  319  cat ~/.config/fastfetch/config.jsonc 
+  320  vim ~/.config/fastfetch/config.jsonc 
+  321  vim ~/.config/fastfetch/config.jsonc 
+  322  vim ~/.config/fastfetch/config.jsonc 
+  323  vim ~/.config/fastfetch/config.jsonc 
+  324  vim ~/.config/fastfetch/config.jsonc 
+  325  cat ~/.config/fastfetch/config.jsonc 
+  326  vim ~/.config/fastfetch/config.jsonc 
+  327  vim ~/.config/fastfetch/config.jsonc 
+  328  fastfetch
+  329  vim ~/.config/fastfetch/config.jsonc 
+  330  vim ~/.config/fastfetch/config.jsonc 
+  331  rm -rf ~/.config/fastfetch/config.jsonc 
+  332  vim ~/.config/fastfetch/config.jsonc 
+  333  fastfetch
+  334  vim ~/.config/fastfetch/config.jsonc 
+  335  vim ~/.config/fastfetch/config.jsonc 
+  336  fastfetch
+  337  systemctl status bluetooth
+  338  bluetui
+  339  fastfetch
+  340  z
+  341  zellij
+  342  exit
+  343  exit
+  344  amixer sset Master unmute
+  345  alsamixer
+  346  pacman -Sy alsa
+  347  sudo pacman -Sy alsa
+  348  udev
+  349  yay -Sy alsa-utils
+  350  alsamixer
+  351  lspci -v | grep -A7 -i "audio"
+  352  sudo usermod -aG audio akira
+  353  logout
+  354  exit
+  355  sudo pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber
+  356  systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumber.service
+  357  alsamixer
+  358  speaker-test -c 2
+  359  sudo pacman -S sof-firmware alsa-firmware alsa-ucm-conf
+  360  reboot now
+  361  sudo reboot now
+  362  cd Code/LinuxTools/SystemSetup/arch/first/
+  363  ls
+  364  mkdir logs
+  365  cd logs
+  366  hist 100 > audio-on.txt
+  367  history 100 > audio-on.txt
