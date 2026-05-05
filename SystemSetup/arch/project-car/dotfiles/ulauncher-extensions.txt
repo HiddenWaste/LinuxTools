@@ -1,0 +1,5 @@
+https://github.com/iboyperson/ulauncher-system
+https://github.com/the-lay/ulauncher-spotify-api
+https://github.com/ulauncher/ulauncher-timer
+https://github.com/NastuzziSamy/ulauncher-custom-scripts
+https://github.com/mikebarkmin/ulauncher-duckduckgo
