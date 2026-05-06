@@ -17,7 +17,7 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
-HISTFILESIZE=3000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -98,8 +98,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Zellij alias
 alias z='zellij'
-
-
+alias f='fastfetch'
+alias t='timedatectl status | grep 'Local' | tail -c 13'
+#       list the time(s) | finds the local time | shows only the time and zone
+    
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -125,10 +127,6 @@ export PATH="$HOME/.local/bin:$PATH" # Used to make sure bin is on path
 # Bitwarden ssh agent attempt...
 export SSH_AUTH_SOCK="$HOME/snap/bitwarden/155/.bitwarden-ssh-agent.sock"
 
-# Caps lock is escape...
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-
 # Run fastfetch on open
-fastfetch
-
+f
 
