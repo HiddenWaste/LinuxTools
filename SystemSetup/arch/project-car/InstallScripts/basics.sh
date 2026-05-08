@@ -8,3 +8,7 @@ sudo pacman -S python-pip
 pip install spotipy --break-system-packages
 
 # spotipy - used in the spotify web api ulauncher extension!
+
+
+# Let's be able to screenshot!
+sudo pacman -S grim slurp wl-clipboard swappy
