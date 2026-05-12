@@ -2,7 +2,7 @@
 
 # Define variables
 URL="https://w.wallhaven.cc/full/9o/wallhaven-9o8k9w.jpg"
-DEST_DIR="$HOME/.icons"
+DEST_DIR="$HOME/Pictures/Wallpapers" # Better location than .icons
 FILE_NAME="wallpaper_9o8k9w.jpg"
 FULL_PATH="$DEST_DIR/$FILE_NAME"
 
@@ -10,15 +10,16 @@ FULL_PATH="$DEST_DIR/$FILE_NAME"
 mkdir -p "$DEST_DIR"
 
 # 2. Download the image
-echo "Downloading wallpaper to $DEST_DIR..."
-curl -L -o "$FULL_PATH" "$URL"
+if [ ! -f "$FULL_PATH" ]; then
+    echo "Downloading wallpaper to $DEST_DIR..."
+    curl -L -o "$FULL_PATH" "$URL"
+fi
 
-# 3. Set the wallpaper
-# Note: This requires 'feh'. Install it with: sudo pacman -S feh
-if command -v feh >/dev/null 2>&1; then
-    feh --bg-fill "$FULL_PATH"
-    echo "Wallpaper set successfully!"
+# 3. Set the wallpaper using awww
+if command -v awww >/dev/null 2>&1; then
+    # 'awww img' sends the image to the running daemon
+    awww img "$FULL_PATH"
+    echo "Wallpaper set successfully with awww!"
 else
-    echo "Image downloaded to $FULL_PATH"
-    echo "Error: 'feh' is not installed. Use 'sudo pacman -S feh' to set the wallpaper via script."
+    echo "Error: 'awww' command not found. Is awww-daemon running?"
 fi
