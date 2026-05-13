@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
 # BEGIN_KITTY_THEME
-# Base2Tone Field Dark
+# Cyberpunk Neon
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -896,7 +896,7 @@ scrollback_lines 6000
 
 #: Window layout {{{
 
-remember_window_size  yes
+# remember_window_size  yes
 # initial_window_width  640
 # initial_window_height 400
 
@@ -998,7 +998,7 @@ remember_window_size  yes
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations yes 
+hide_window_decorations no 
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
